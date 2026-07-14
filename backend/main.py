@@ -5,34 +5,39 @@ from app.loaders.resume_loader import ResumeLoader
 from app.splitters.resume_splitter import ResumeSplitter
 from app.embeddings.embedding_model import EmbeddingModel
 from app.vectorstore.faiss_manager import FAISSManager
+from app.chains.rag_chain import build_rag_chain
+from app.retrievers.resume_retriever import get_retriever, load_vectorstore
+ 
+
 
 def main():
-     # Load resume
-    resume_path = Path(__file__).resolve().parent / "data" / "resumes" / "ResumeSamrat2025.pdf"
-    loader = ResumeLoader(str(resume_path))
-    documents = loader.load()
+    
+    llm = get_llm()
 
-    # Split into chunks
-    splitter = ResumeSplitter()
-    chunks = splitter.split(documents)
-
-    print(f"Chunks created: {len(chunks)}")
-
-    # Load embedding model
     embeddings = EmbeddingModel().get_embeddings()
 
-    # Create vector store
-    manager = FAISSManager(embeddings)
-
-    vectorstore = manager.create_vectorstore(chunks)
-
-    # Save locally
-    manager.save_vectorstore(
-        vectorstore,
-        "faiss_index"
+    vectorstore = load_vectorstore(
+        "faiss_index",
+        embeddings,
     )
 
-    print("\nFAISS index created successfully!")
-    print("Saved in: faiss_index/")
+    retriever = get_retriever(
+        vectorstore,
+        k=3,
+    )
+
+    rag_chain = build_rag_chain(
+        llm,
+        retriever,
+    )
+
+    question = "Does the candidate know fastapi.answer is yes or no"
+
+    answer = rag_chain.invoke(question)
+
+    print("\nAnswer:\n")
+
+    print(answer)
+
 if __name__ == "__main__":
     main()
