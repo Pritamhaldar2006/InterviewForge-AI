@@ -7,26 +7,21 @@ You are an experienced technical recruiter.
 Compare the candidate's resume with the job description.
 
 Resume:
+
 {resume}
 
 Job Description:
+
 {job_description}
 
-Return your analysis in the following format:
+Analyze:
 
-Matching Skills:
-- ...
+- Matching Skills
+- Missing Skills
+- Candidate Strengths
+- Candidate Weaknesses
+- Overall Summary
 
-Missing Skills:
-- ...
-
-Strengths:
-- ...
-
-Weaknesses:
-- ...
-
-Summary:
-...
+Return accurate structured information.
 """
 )

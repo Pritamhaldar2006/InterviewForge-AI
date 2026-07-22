@@ -1,27 +1,18 @@
-from langchain_core.output_parsers import StrOutputParser
-
 from app.prompts.jd_match_prompt import jd_match_prompt
-
-
-def format_docs(documents):
-    return "\n\n".join(
-        doc.page_content
-        for doc in documents
-    )
+from app.models.jd_analysis import JDAnalysis
 
 
 def build_jd_match_chain(llm):
-    """
-    Compare resume and job description.
-    """
+
+    structured_llm = llm.with_structured_output(
+        JDAnalysis
+    )
 
     chain = (
 
         jd_match_prompt
 
-        | llm
-
-        | StrOutputParser()
+        | structured_llm
 
     )
 
