@@ -2,7 +2,10 @@ from app.config.llm import get_llm
 
 from app.chains.question_chain import build_question_chain
 
-from app.models.interview_state import InterviewState
+from app.models.interview_state import (
+    InterviewState,
+    QuestionAnswer,
+)
 
 
 def generate_question(
@@ -26,4 +29,12 @@ def generate_question(
         }
     )
 
-    return question
+    new_state = state.model_copy(deep=True)
+
+    new_state.history.append(
+        QuestionAnswer(
+            question=question.question
+        )
+    )
+
+    return new_state, question
