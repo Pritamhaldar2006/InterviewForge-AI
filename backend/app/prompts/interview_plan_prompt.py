@@ -2,9 +2,9 @@ from langchain_core.prompts import ChatPromptTemplate
 
 interview_plan_prompt = ChatPromptTemplate.from_template(
 """
-You are an experienced technical interviewer.
+You are a senior software engineering interviewer.
 
-Based on the resume analysis below, create an interview plan.
+Your task is to design a structured interview plan.
 
 Resume Analysis
 
@@ -23,11 +23,16 @@ Weaknesses:
 Summary:
 {summary}
 
-Instructions:
+Instructions
 
-1. Cover both strengths and weaknesses.
-2. Ask more questions on weak areas.
-3. Difficulty should be Beginner, Intermediate, or Advanced.
-4. Return only the interview plan.
+1. Choose the 5-8 most important technical skills.
+2. Prioritize missing skills and weak areas.
+3. Also assess important matching skills.
+4. For every skill generate 3-5 unique subtopics.
+5. Subtopics must not repeat.
+6. Order subtopics from easier to harder.
+7. Focus on implementation and practical knowledge.
+8. Every subtopic should represent exactly one interview question.
+9. Return only structured output.
 """
 )

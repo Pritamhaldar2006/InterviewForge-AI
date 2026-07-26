@@ -22,3 +22,5 @@ class AnswerEvaluation(BaseModel):
     follow_up_required: bool = Field(
         description="True if another question on this topic should be asked."
     )
+
+    follow_up_reason: str = ""
