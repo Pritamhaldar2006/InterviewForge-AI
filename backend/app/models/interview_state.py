@@ -31,33 +31,20 @@ class QuestionAnswer(BaseModel):
 
 
 class InterviewState(BaseModel):
-
     analysis: JDAnalysis
-
     plan: InterviewPlan
 
-    # Current interview position
     current_topic: int = 0
+    current_question: int = 0
 
-    current_subtopic: int = 0
+    current_difficulty: str = "Beginner"
 
-    # Adaptive difficulty
-    current_difficulty: Difficulty = Difficulty.INTERMEDIATE
-
-    # Follow-up handling
     follow_up_count: int = 0
-
     max_follow_ups: int = 2
 
-    # Interview history
     history: list[QuestionAnswer] = Field(default_factory=list)
 
-    # Performance tracking
     weak_topics: list[str] = Field(default_factory=list)
-
     strong_topics: list[str] = Field(default_factory=list)
 
-    completed_topics: list[str] = Field(default_factory=list)
-
-    # Interview status
     interview_completed: bool = False

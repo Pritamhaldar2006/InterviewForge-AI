@@ -1,0 +1,94 @@
+{
+    "analysis": {
+        "matching_skills": [
+            "Python",
+            "FastAPI",
+            "SQL",
+            "Docker",
+            "Git",
+            "REST API Development",
+            "AWS",
+            "Redis",
+            "PostgreSQL",
+            "CI/CD",
+            "RAG",
+            "Prompt Engineering",
+            "LLM Integration"
+        ],
+        "missing_skills": [
+            "LangChain",
+            "LangGraph",
+            "FAISS",
+            "ChromaDB",
+            "React",
+            "Kubernetes",
+            "Linux",
+            "Groq/OpenAI API integration (explicit)",
+            "Pydantic",
+            "Hugging Face models"
+        ],
+        "strengths": [
+            "Strong hands-on AI/ML experience: fine-tuned LLMs, built end-to-end voice pipeline (ASR→LLM→TTS), and deployed streaming inference with ~40% latency reduction",
+            "Solid backend engineering with Flask, FastAPI, NodeJS, and REST APIs across multiple projects",
+            "Relevant vector/embeddings experience: built ETL pipeline and stored embeddings in Pinecone for semantic search across 10k+ entries (transferable to FAISS/ChromaDB)",
+            "Practical RAG-adjacent work: Generative AI reporting for automated incident summaries and conversational product intelligence (ProcurAI)",
+            "Strong data stack: MongoDB, PostgreSQL, MySQL, Redis",
+            "DevOps/Deployment: Docker, GitHub Actions (CI/CD), AWS",
+            "Demonstrated measurable impact: 70% reduction in hazard detection time, 4x throughput improvement, 25% relevance improvement in A/B tests",
+            "Research background with publication on blockchain and Stanford ML certificate (Andrew Ng) showing strong foundational knowledge",
+            "Experience level (intern + projects) aligns well with the 1-3 years requirement"
+        ],
+        "weaknesses": [
+            "No explicit mention of LangChain or LangGraph, which are core required skills for this role",
+            "No direct experience with FAISS or ChromaDB (used Pinecone instead, which is a different vector DB)",
+            "No React/frontend experience mentioned, though collaboration with frontend developers is a responsibility",
+            "No Kubernetes or Linux experience listed",
+            "No explicit mention of Groq or OpenAI API integrations (though LLM work is present)",
+            "No Pydantic or FastAPI dependency injection experience mentioned",
+            "No Hugging Face model experience (fine-tuned LLMs but framework not specified)",
+            "Some achievements noted as 'prototype' or 'design & prototype stage', suggesting limited production deployment experience",
+            "No explicit AI chatbot production experience (ProcurAI is conversational but scope unclear)"
+        ],
+        "summary": "The candidate is a strong match for the Backend AI Engineer role with solid alignment on core technical skills (Python, FastAPI, SQL, Docker, Git, REST APIs, AWS, Redis, PostgreSQL, CI/CD) and relevant AI/ML experience including LLM fine-tuning, RAG-adjacent projects, and vector/embeddings work. The primary gaps are the absence of explicit LangChain/LangGraph experience (a core requirement) and direct FAISS/ChromaDB usage (candidate used Pinecone). The candidate's demonstrated ability to build end-to-end AI pipelines, strong backend engineering, and measurable performance improvements make them a competitive candidate. With relatively quick upskilling in LangChain/LangGraph and FAISS, the candidate could be highly effective in this role. Overall recommendation: Strong candidate worth advancing to technical interview to assess depth of AI/ML knowledge and adaptability to the specific tech stack."
+    },
+    "plan": {
+        "topics": [
+            {
+                "skill": "RAG",
+                "subtopics": [
+                    {
+                        "name": "Designing a RAG pipeline: how to chunk documents, generate embeddings, and retrieve relevant context to feed into an LLM, and how you would evaluate retrieval quality",
+                        "difficulty": "medium"
+                    },
+                    {
+                        "name": "Comparing vector databases (e.g., Pinecone vs FAISS/ChromaDB) and the trade-offs in indexing, scalability, and integration with a LangChain/LangGraph-based RAG system",
+                        "difficulty": "hard"
+                    }
+                ]
+            },
+            {
+                "skill": "LLM Integration",
+                "subtopics": [
+                    {
+                        "name": "Conceptual design of an LLM-powered chatbot backend: prompt engineering strategies, handling streaming responses, managing context/memory, and integrating with external APIs (e.g., OpenAI/Groq)",
+                        "difficulty": "medium"
+                    },
+                    {
+                        "name": "Fine-tuning vs. RAG: when to choose each approach, the data requirements, and how to structure an end-to-end pipeline from data preparation to deployment with latency and cost considerations",
+                        "difficulty": "hard"
+                    }
+                ]
+            }
+        ]
+    },
+    "current_topic": 0,
+    "current_subtopic": 0,
+    "current_difficulty": "Intermediate",
+    "follow_up_count": 0,
+    "max_follow_ups": 2,
+    "history": [],
+    "weak_topics": [],
+    "strong_topics": [],
+    "completed_topics": [],
+    "interview_completed": false
+}

@@ -1,0 +1,84 @@
+{
+    "analysis": {
+        "matching_skills": [
+            "Python",
+            "FastAPI",
+            "SQL",
+            "Docker",
+            "Git",
+            "REST API Development",
+            "AWS",
+            "Redis",
+            "PostgreSQL",
+            "CI/CD (GitHub Actions)"
+        ],
+        "missing_skills": [
+            "LangChain",
+            "LangGraph",
+            "Prompt Engineering",
+            "RAG",
+            "FAISS",
+            "Kubernetes",
+            "Linux",
+            "React (frontend collaboration)"
+        ],
+        "strengths": [
+            "Strong backend engineering foundation with FastAPI, Flask, NodeJS, and REST API development experience",
+            "Hands-on experience with vector/embedding-based semantic search (Pinecone) and ETL pipelines, closely related to RAG and vector search concepts",
+            "Practical LLM experience: fine-tuning LLMs, streaming inference, and building end-to-end voice pipelines (ASR→LLM→TTS)",
+            "Relevant cloud and DevOps tooling: AWS, Docker, GitHub Actions (CI/CD), and containerization",
+            "Demonstrated performance optimization skills (40% latency reduction, 4x throughput improvement, 70% hazard detection time reduction)",
+            "Solid database experience spanning PostgreSQL, MySQL, MongoDB, and Redis",
+            "Research background (Stanford ML certificate, blockchain publication) indicating strong analytical and learning capabilities"
+        ],
+        "weaknesses": [
+            "No explicit mention of LangChain or LangGraph, which are core requirements for this role",
+            "No direct experience with FAISS or ChromaDB (used Pinecone instead, which is related but not the same)",
+            "No explicit mention of RAG pipeline development, though embedding-based semantic search experience is closely related",
+            "No experience with Kubernetes or Linux administration",
+            "No mention of React or frontend collaboration experience",
+            "Experience appears to be in prototype/pilot/design stages rather than production deployments, which may be a concern for a 1-3 year experience role",
+            "No explicit mention of Groq or OpenAI API integrations, though LLM fine-tuning and inference experience is present"
+        ],
+        "summary": "The candidate is a strong partial match for the Backend AI Engineer role. They demonstrate solid backend engineering skills (FastAPI, REST APIs, Docker, SQL, AWS, Redis, PostgreSQL, CI/CD) and relevant AI/ML experience including LLM fine-tuning, streaming inference, and embedding-based semantic search. However, there are notable gaps in the specific AI framework stack required (LangChain, LangGraph, FAISS/ChromaDB, explicit RAG pipelines) and in infrastructure skills (Kubernetes, Linux). The candidate's experience with Pinecone for vector search and LLM pipelines suggests they have transferable skills that could be quickly adapted to FAISS/ChromaDB and LangChain/LangGraph. Their experience appears to be largely in prototype and pilot stages rather than production, which is a consideration given the 1-3 year experience requirement. Overall, the candidate would be a good fit if they can demonstrate or quickly acquire proficiency in the LangChain/LangGraph ecosystem and production-grade deployment practices. I'd"
+    },
+    "plan": {
+        "topics": [
+            {
+                "skill": "RAG & Vector Search (FAISS/ChromaDB vs Pinecone)",
+                "subtopics": [
+                    {
+                        "name": "Conceptual differences between managed vector DBs (Pinecone) and local/embedded options (FAISS, ChromaDB): indexing strategies, memory footprint, and when to choose each",
+                        "difficulty": "medium"
+                    },
+                    {
+                        "name": "Designing a RAG pipeline: chunking strategies, embedding model selection, hybrid retrieval (dense + sparse), and how to evaluate retrieval quality",
+                        "difficulty": "hard"
+                    }
+                ]
+            },
+            {
+                "skill": "LangChain / LangGraph (LLM Orchestration)",
+                "subtopics": [
+                    {
+                        "name": "Why LangGraph (stateful, cyclic graphs) is preferred over simple LangChain chains for multi-step agentic workflows; concepts of nodes, edges, and state management",
+                        "difficulty": "medium"
+                    },
+                    {
+                        "name": "How to structure a production-grade LLM application: separating retrieval, routing, memory, and tool-calling concerns; handling failures, retries, and observability",
+                        "difficulty": "hard"
+                    }
+                ]
+            }
+        ]
+    },
+    "current_topic": 0,
+    "current_question": 0,
+    "current_difficulty": "Beginner",
+    "follow_up_count": 0,
+    "max_follow_ups": 2,
+    "history": [],
+    "weak_topics": [],
+    "strong_topics": [],
+    "interview_completed": false
+}

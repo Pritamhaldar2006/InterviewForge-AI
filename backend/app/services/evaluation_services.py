@@ -3,12 +3,16 @@ from app.config.llm import get_llm
 from app.chains.evaluation_chain import build_evaluation_chain
 
 from app.models.interview_state import InterviewState
+from backend.app.services.state_service import (load_interview_state,save_interview_state)
 
 
 def evaluate_answer(
-    state: InterviewState,
+    session_id: str,
     answer: str,
 ):
+    state = load_interview_state(
+    session_id
+)
 
     topic = state.plan.topics[state.current_topic]
 
@@ -61,4 +65,9 @@ def evaluate_answer(
     else:
         new_state.current_difficulty = "Beginner"
 
-    return new_state, evaluation
+    save_interview_state(
+    session_id,
+    new_state,
+)
+
+    return evaluation

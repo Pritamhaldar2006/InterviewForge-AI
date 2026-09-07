@@ -1,52 +1,85 @@
 from app.config.llm import get_llm
 
-from app.chains.question_chain import build_question_chain
+from app.chains.question_chain import (
+    build_question_chain,
+)
 
 from app.models.interview_state import (
-    InterviewState,
     QuestionAnswer,
+)
+
+from app.services.state_service import (
+    load_interview_state,
+    save_interview_state,
 )
 
 
 def generate_question(
-    state: InterviewState,
+    session_id: str,
 ):
-    topic = state.plan.topics[state.current_topic]
 
-    subtopic = topic.subtopics[state.current_subtopic]
+    state = load_interview_state(
+        session_id
+    )
+
+    # --------------------------------------------------
+    # Check whether interview is already completed
+    # --------------------------------------------------
+
+    if state.interview_completed:
+
+        raise ValueError(
+            "Interview is already completed."
+        )
+
+    # --------------------------------------------------
+    # Get current topic
+    # --------------------------------------------------
+
+    topic = state.plan.topics[
+        state.current_topic
+    ]
+
+    # --------------------------------------------------
+    # Generate question
+    # --------------------------------------------------
 
     llm = get_llm()
 
-    chain = build_question_chain(llm)
+    chain = build_question_chain(
+        llm
+    )
 
     question = chain.invoke(
-    {
-        "skill": topic.skill,
-        "subtopic": subtopic.name,
-        "difficulty": subtopic.difficulty,
-        "history": [
-            {
-                "question": item.question,
-                "subtopic": item.subtopic,
-                "score": item.score,
-            }
-            for item in state.history
-        ],
-        "strengths": state.strong_topics,
-        "weaknesses": state.weak_topics,
-        "follow_up": state.follow_up_count > 0,
-    }
-)
+        {
+            "skill": topic.skill,
+            "difficulty": topic.difficulty,
+            "history": [
+                item.question
+                for item in state.history
+            ],
+        }
+    )
 
-    new_state = state.model_copy(deep=True)
+    # --------------------------------------------------
+    # Add question to history
+    # --------------------------------------------------
 
-    new_state.history.append(
+    state.history.append(
         QuestionAnswer(
             skill=topic.skill,
-            subtopic=subtopic.name,
-            difficulty=subtopic.difficulty,
+            difficulty=topic.difficulty,
             question=question.question,
         )
     )
 
-    return new_state, question
+    # --------------------------------------------------
+    # Save updated state
+    # --------------------------------------------------
+
+    save_interview_state(
+        session_id,
+        state,
+    )
+
+    return question

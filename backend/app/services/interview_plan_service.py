@@ -9,9 +9,9 @@ from app.chains.interview_plan_chain import (
 )
 
 
-def generate_interview_plan():
+def generate_interview_plan(analysis):
 
-    analysis = compare_resume_and_jd()
+   
 
     llm = get_llm()
 
@@ -24,6 +24,8 @@ def generate_interview_plan():
             "strengths": analysis.strengths,
             "weaknesses": analysis.weaknesses,
             "summary": analysis.summary,
+            "max_questions":2
+
         }
     )
 

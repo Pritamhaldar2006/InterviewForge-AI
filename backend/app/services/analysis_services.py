@@ -17,21 +17,24 @@ def format_docs(documents):
     )
 
 
-def compare_resume_and_jd():
+def compare_resume_and_jd(
+    resume_index_path: str,
+    jd_index_path: str,
+):
 
     llm = get_llm()
 
     embeddings = get_embedding_model()
 
     resume_store = load_vectorstore(
-        "faiss_index/resume",
-        embeddings,
-    )
+    resume_index_path,
+    embeddings,
+)
 
     jd_store = load_vectorstore(
-        "faiss_index/job_description",
-        embeddings,
-    )
+    jd_index_path,
+    embeddings,
+)
 
     resume_retriever = get_retriever(
         resume_store

@@ -1,0 +1,80 @@
+Backend AI Engineer
+
+Location: Bengaluru, India
+
+Experience Required:
+1-3 years
+
+Job Description
+
+We are looking for a Backend AI Engineer to build scalable AI-powered applications.
+
+Responsibilities
+
+Develop REST APIs using FastAPI.
+
+Build Retrieval-Augmented Generation (RAG) applications.
+
+Work with LangChain and LangGraph.
+
+Integrate Large Language Models using Groq or OpenAI APIs.
+
+Design vector search solutions using FAISS or ChromaDB.
+
+Develop scalable backend services.
+
+Write clean and maintainable Python code.
+
+Work with SQL databases.
+
+Deploy applications using Docker.
+
+Collaborate with frontend developers using React.
+
+Required Skills
+
+Python
+
+FastAPI
+
+LangChain
+
+LangGraph
+
+Prompt Engineering
+
+RAG
+
+FAISS
+
+SQL
+
+Docker
+
+Git
+
+REST API Development
+
+Preferred Skills
+
+AWS
+
+Redis
+
+PostgreSQL
+
+CI/CD
+
+Kubernetes
+
+Linux
+
+Good communication skills
+
+Nice to Have
+
+Experience building AI chatbots.
+
+Experience with Hugging Face models.
+
+Knowledge of Pydantic and FastAPI dependency injection.
